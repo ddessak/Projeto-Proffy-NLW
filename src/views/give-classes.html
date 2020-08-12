@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8257E5">
+    <title>Proffy | Sua plataforma de estudos Online</title>
+    <link rel="shortcut icon" href="/Imagens/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/partials/header.css">
+    <link rel="stylesheet" href="style/partials/give-classes.css">
+    <link rel="stylesheet" href="style/partials/forms.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
+        rel="stylesheet">
+    <script src="scripts/addField.js" defer> </script>
+
+</head>
+
+<body id="page-give-classes">
+
+    <div id="conteiner">
+
+        <header class="page-header"> 
+
+            <div class="top-bar-conteiner">
+
+                <a href="/"> 
+                    <img src="Imagens/icons/back.svg" alt="Voltar"> 
+                </a>
+
+                <img src="Imagens/logo.svg" alt="Proffy">
+
+            </div> <!--top-bar-conteiner -->
+
+            <div class="header-content">
+       
+                <strong>Que incrível que você quer dar aula</strong> 
+                <p> O primeiro passo, é preeencher esse formulario de inscrição</p>
+            </div> <!--header-content-->
+
+        </header><!--page-header-->
+
+        <main> 
+            <form action="" id="create-class">
+
+                <fieldset> 
+                    <legend> Seu Dados </legend>
+
+                    <div class="input-block">
+
+                        <label for="nome"> Nome Completo</label>
+                        <input name="name" id="name" required>
+
+                    </div> <!--input-block-->
+
+                    <div class="input-block">
+                        
+                        <label for="avatar"> Link da Foto <small>(Comece com https://)</small> </label>
+                        <input name="avatar" id="avatar" type="url" required>
+
+                    </div> <!--input-block-->
+
+                    <div class="input-block">
+                        
+                        <label for="whatsapp"> Whatsapp <small>(Somente números)</small></label>
+                        <input name="whatsapp" id="whatsapp" type="number" required>
+
+                    </div> <!--input-block-->
+
+                    <div class="textarea-block">
+
+                        <label for="biografia"> Biografia</label>
+                        <textarea name="bio" id="bio" required> </textarea>
+
+                    </div> <!--textarea-block-->
+
+             
+                </fieldset>
+
+                <fieldset>
+
+                   <legend> Sobre a Aula </legend>
+
+                    <div class="select-block">
+
+                       <label for="subject">Matéria</label>
+                    
+                        <select name="subject" id="subject" required>
+
+                            <option value="">Selecione qual materia quer ensinar</option>
+                            
+                            {% for subject in subjects %}
+
+                            <option value="{{loop.index}}">{{subject}}</option>
+
+                        {% endfor %}
+            
+                        </select>
+
+                     </div> <!--select-block-->
+
+                     <div class="input-block">
+
+                         <label for="cust"> Custo da sua aula por hora <small>(em R$S)</small></label>
+                         <input name="cust" id="cust" type="number" required>
+
+                     </div> <!--select-block-->
+
+
+                </fieldset>
+
+                <fieldset id="schendule-item"> 
+
+                    <legend> Horários Disponiveis
+                        <button type="button" id="add-time"> + Novo Horário </button> 
+                    </legend>
+
+                    <div class="schendule-item"> 
+
+                        <div class="select-block">
+
+                            <label for="weckday">Dia da Semana </label>
+                            <select name="weckday"[] required> 
+
+                                <option value="">Selecione uma opção</option>
+
+                            {% for weckday in weckdays %}
+
+                                <option value="{{loop.index0}}" {{ "selected" if filters.weekday == loop.index0 }} >{{weckday}}</option>
+
+                            {% endfor %}
+                                
+                            </select>
+
+                        </div>
+
+                        <div class="input-block">
+
+                             <label for="time_from">Das</label>
+                             <input type="time" name="time_from[]" required> 
+
+                        </div>
+
+                        <div class="input-block">
+
+                            <label for="time_from">Até</label>
+                            <input type="time" name="time_from[]" required> 
+
+                       </div>
+
+                    </div> <!--schendule-item-->
+
+
+                </fieldset>
+
+
+            </form> <!--create-class-->
+
+            <footer>
+                <p> 
+
+                    <img src="imagens/icons/warning.svg" alt="Aviso Importante">
+                    Importante! 
+                    <br>
+                    Prencha Todos os dados.
+
+                </p>
+
+                <button type="submit" form="create-class"> Salvar Cadastro </button>
+
+
+            </footer>
+
+
+
+        </main>
+                   
+
+    </div>  <!--conteiner-->     
+
+</body> <!--page-give-classes-->
+
+</html>
